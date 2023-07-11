@@ -23,7 +23,6 @@ public class CompanyController {
     @Autowired
     private CompanyServiceImpl service;
 
-    @Transactional
     @PostMapping
     public ResponseEntity<Company> addCompanyWithManufacturer(@RequestBody Company company) {
         Company addedCompany = service.addCompany(company);
@@ -42,7 +41,6 @@ public class CompanyController {
         return new ResponseEntity<>(companyById, HttpStatus.FOUND);
     }
 
-    @Transactional
     @PutMapping("/{id}")
     public ResponseEntity<Company> updateCompany(@PathVariable int id, @RequestBody Company company) {
         Company updatedCompany = service.updateCompany(id, company);
